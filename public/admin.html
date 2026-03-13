@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Chat Panel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h2>Listener Dashboard</h2>
+
+<div id="chat-box"></div>
+
+<input id="message" placeholder="Reply to user...">
+<button onclick="sendMessage()">Send</button>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+
+const socket = io();
+
+function sendMessage(){
+
+let input = document.getElementById("message");
+let msg = "Listener: " + input.value;
+
+socket.emit("chat message", msg);
+
+input.value="";
+}
+
+socket.on("chat message", function(msg){
+
+let chat = document.getElementById("chat-box");
+
+let p = document.createElement("p");
+p.textContent = msg;
+
+chat.appendChild(p);
+
+});
+
+</script>
+
+</body>
+</html>

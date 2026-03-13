@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Talk Freely</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="chat-container">
+
+<div class="chat-header">
+Someone is here to listen 💬
+</div>
+
+<div id="chat-box"></div>
+
+<div class="chat-input">
+<input id="message" placeholder="Type your message...">
+<button onclick="sendMessage()">Send</button>
+</div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
